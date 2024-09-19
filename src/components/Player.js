@@ -12,11 +12,11 @@ import jwt from "jwt-decode";
 import { usePlayers } from "../utility/helperHook";
 
 function Player() {
-  const { Player1, Player2 } = usePlayers(); 
+  const { Player1, Player2 } = usePlayers();
   const [current, setCurrent] = useState("");
   const [currentUserLogin,setIsCurrentUserLogin] = useState(!!localStorage.getItem('token'))
   const [isBuddyLogin,setIsBuddyLogin] = useState(!!localStorage.getItem('buddyToken'))
-  
+
   function setPlayers(item) {
     setCurrent(item);
     localStorage.setItem("players", item);
@@ -93,13 +93,13 @@ function Player() {
               setPlayers("p1s");
             }}
             className={
-              current === "p1s" ? "no_Of_Player_Selected" : "no_Of_Player"
+              current === "p1s" ||  current === "p2s" ? "no_Of_Player_Selected" : "no_Of_Player"
             }
           >
             {Player1 === "" ? "1 Player" : Player1.student_name}
           </p>
         </>
-      
+
           <>
             <p
               onClick={() => {
