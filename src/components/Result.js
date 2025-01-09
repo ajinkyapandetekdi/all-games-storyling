@@ -27,7 +27,7 @@ const Snowflake = (props) => {
 };
 
 function Result() {
-  const { Player1, Player2 } = usePlayers(); 
+  const { Player1, Player2 } = usePlayers();
   let player1 = localStorage.getItem("p1");
   let player2 = localStorage.getItem("p2");
   let score1 = localStorage.getItem("score1");
@@ -55,7 +55,7 @@ function Result() {
         });
       }
     }
-      else{
+    else{
       const Player1 = (score1 / 100).toPrecision(2);
       if (window && window.parent) {
         window.parent.postMessage({
@@ -63,7 +63,8 @@ function Result() {
           message: 'storylingo-app-score',
         });
       }
-      }
+    }
+    window.telemetry?.syncEvents && window.telemetry.syncEvents();
   };
 
 
@@ -113,7 +114,7 @@ function Result() {
         }
       >
         {numberOfPlayers === "p1s" ? (
-          <h1 className="mint">GAME OVER</h1> 
+          <h1 className="mint">GAME OVER</h1>
         ) : Number(score1) > Number(score2) ? (
           <h1 className="mint">{Player1.student_name || "Player 1"} WON</h1>
         ) : Number(score1) === Number(score2) ? (
