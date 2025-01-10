@@ -1,7 +1,8 @@
 import React, { lazy, Suspense, useEffect } from "react";
 import { Routes, Route, HashRouter } from "react-router-dom";
 // Telemetry
-import "@project-sunbird/telemetry-sdk/index.js";
+// import "@project-sunbird/telemetry-sdk/index.js";
+import "@tekdi/all-telemetry-sdk/index.js";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import { startEvent } from "./services/callTelemetryIntract";
 import { initialize, end } from "./services/telementryService";
